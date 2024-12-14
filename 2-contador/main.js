@@ -4,23 +4,30 @@ function $(selector) {
 }
 
 const $h1Contador = $(".contador");//0
+const $buttonMenosUno = $(".menosUno");//-1
 const $buttonMasUno = $(".masUno");//+1
+const $buttonMenosCinco = $(".menosCinco");//+1
 
-/*CONVERSIÓN A NUMBER*/
-const $numberH1Contador = Number($h1Contador);
-const $numberButtonMasUno = Number($buttonMasUno);
+let numeroVariable = 0
 
-/*FUNCION SUMAR*/
-function sumar ($numberH1Contador, $numberButtonMasUno){
-  return $numberH1Contador + $numberButtonMasUno
-}
-
-/*RETORNO FUNCION*/
-const retornoFuncion = sumar(0, 1);
-
-/* EVENTO*/
-$buttonMasUno.addEventListener("click", function () {
-  $h1Contador.innerText = retornoFuncion
+$buttonMasUno.addEventListener("click", function (){
+  numeroVariable += 1
+  $h1Contador.innerText = numeroVariable
 })
 
+$buttonMenosUno.addEventListener("click", function (){
+  if (numeroVariable > 0) {
+    numeroVariable -= 1
+    $h1Contador.innerText = numeroVariable
+
+  }
+})
+
+$buttonMenosCinco.addEventListener("click", function (){
+  if (numeroVariable - 0) {
+    numeroVariable -= 5
+    $h1Contador.innerText = numeroVariable
+
+  }
+})
 
